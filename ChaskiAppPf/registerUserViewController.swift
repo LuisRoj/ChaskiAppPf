@@ -17,6 +17,9 @@ class registerUserViewController: UIViewController {
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var profileImageView: UIImageView!
     
+    var selectedImage: UIImage?
+
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,7 +88,8 @@ class registerUserViewController: UIViewController {
     extension registerUserViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
         func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
             if let image = info[.originalImage] as? UIImage {
-                profileImageView.image = image
+                profileImageView.image = image // o asignar a otra propiedad
+                selectedImage = image
             }
             picker.dismiss(animated: true)
         }

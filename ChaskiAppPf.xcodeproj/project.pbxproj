@@ -28,6 +28,7 @@
 		B1C681CA2D0C01940015EBF2 /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C681C92D0C01940015EBF2 /* Tweet.swift */; };
 		B1C681CC2D0C19BB0015EBF2 /* TweetCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C681CB2D0C19BB0015EBF2 /* TweetCellTableViewCell.swift */; };
 		B1C681CF2D0C1B020015EBF2 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = B1C681CE2D0C1B020015EBF2 /* Alamofire */; };
+		B7C569882D0DE04D008016D5 /* PublishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C569872D0DE04D008016D5 /* PublishViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		B1C681C72D0BFD580015EBF2 /* profileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileViewController.swift; sourceTree = "<group>"; };
 		B1C681C92D0C01940015EBF2 /* Tweet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
 		B1C681CB2D0C19BB0015EBF2 /* TweetCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetCellTableViewCell.swift; sourceTree = "<group>"; };
+		B7C569872D0DE04D008016D5 /* PublishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 				B1C681C72D0BFD580015EBF2 /* profileViewController.swift */,
 				B1C681C92D0C01940015EBF2 /* Tweet.swift */,
 				B1C681CB2D0C19BB0015EBF2 /* TweetCellTableViewCell.swift */,
+				B7C569872D0DE04D008016D5 /* PublishViewController.swift */,
 			);
 			path = ChaskiAppPf;
 			sourceTree = "<group>";
@@ -190,6 +193,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7C569882D0DE04D008016D5 /* PublishViewController.swift in Sources */,
 				B1C681CC2D0C19BB0015EBF2 /* TweetCellTableViewCell.swift in Sources */,
 				B152F9802D0692EF0043A93A /* ViewController.swift in Sources */,
 				B1C681C22D0BBAAE0015EBF2 /* registerUserViewController.swift in Sources */,
