@@ -58,7 +58,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             cell.userDisplayNameLabel.text = tweet.userDisplayName
             cell.contentLabel.text = tweet.content
             if let imageURL = tweet.imageURL {
-                // Carga la imagen desde la URL (usa una librería o extensión para manejo de imágenes) Como se hace esto??
+                // Carga la imagen desde la URL (usa una librería o extensión para manejo de imágenes) Como se hace esto?? Test de subida
             }
             return cell
         }
