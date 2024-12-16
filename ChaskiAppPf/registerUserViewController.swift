@@ -22,38 +22,40 @@ class registerUserViewController: UIViewController {
     
 
     override func viewDidLoad() {
-        super.viewDidLoad()
-        profileImageView.isUserInteractionEnabled = true
-                let tapGesture = UITapGestureRecognizer(target: self, action: #selector(selectImage))
-                profileImageView.addGestureRecognizer(tapGesture)
-    }
-    
-    @objc func selectImage() {
+            super.viewDidLoad()
+            profileImageView.isUserInteractionEnabled = true
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(selectImage))
+            profileImageView.addGestureRecognizer(tapGesture)
+        }
+        
+        @objc func selectImage() {
             let picker = UIImagePickerController()
             picker.delegate = self
             picker.sourceType = .photoLibrary
             present(picker, animated: true)
         }
-    
-    
-    @IBAction func uploadPhotoButtonTapped(_ sender: UIButton) {
-        selectImage()
-    }
-    
+        
+        @IBAction func uploadPhotoButtonTapped(_ sender: UIButton) {
+            selectImage()
+        }
         
         @IBAction func registerButtonTapped(_ sender: UIButton) {
             guard let email = emailTextField.text,
                   let password = passwordTextField.text,
                   let name = nameTextField.text,
                   let profileImage = profileImageView.image?.jpegData(compressionQuality: 0.8) else { return }
-
+            
+            // Crear un ID personalizado
+            let randomNumber = Int.random(in: 100_000_000...999_999_999)
+            let documentId = "@\(name)\(randomNumber)"
+            
             Auth.auth().createUser(withEmail: email, password: password) { result, error in
-                guard let userId = result?.user.uid, error == nil else {
+                guard error == nil else {
                     print("Error al registrar: \(error?.localizedDescription ?? "Desconocido")")
                     return
                 }
 
-                let storageRef = Storage.storage().reference().child("profileImages/\(userId).jpg")
+                let storageRef = Storage.storage().reference().child("profileImages/\(documentId).jpg")
                 storageRef.putData(profileImage, metadata: nil) { _, error in
                     guard error == nil else {
                         print("Error al subir imagen: \(error?.localizedDescription ?? "Desconocido")")
@@ -62,20 +64,38 @@ class registerUserViewController: UIViewController {
 
                     storageRef.downloadURL { url, _ in
                         guard let imageURL = url else { return }
+                        
                         let db = Firestore.firestore()
-                        db.collection("users").document(userId).setData([
-                            "name": name,
-                            "email": email,
-                            "profileImageURL": imageURL.absoluteString
-                        ]) { error in
-                            if error == nil {
-                                print("Usuario registrado correctamente")
-                                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                                if let loginVC = storyboard.instantiateViewController(withIdentifier: "loginViewController") as? loginViewController {
-                                    loginVC.modalPresentationStyle = .fullScreen
-                                    self.present(loginVC, animated: true, completion: nil)
+                        
+                        // Validar que el ID sea único
+                        let userDocRef = db.collection("users").document(documentId)
+                        userDocRef.getDocument { (document, error) in
+                            if let error = error {
+                                print("Error al obtener datos del usuario: \(error.localizedDescription)")
+                                return
+                            }
+                            
+                            if let document = document, document.exists {
+                                print("El ID generado ya existe. Intenta nuevamente.")
+                            } else {
+                                // Guardar datos en Firestore
+                                userDocRef.setData([
+                                    "name": name,
+                                    "email": email,
+                                    "profileImageURL": imageURL.absoluteString
+                                ]) { error in
+                                    if let error = error {
+                                        print("Error al guardar datos: \(error.localizedDescription)")
+                                        return
+                                    }
+                                    
+                                    print("Usuario registrado correctamente")
+                                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                                    if let loginVC = storyboard.instantiateViewController(withIdentifier: "loginViewController") as? loginViewController {
+                                        loginVC.modalPresentationStyle = .fullScreen
+                                        self.present(loginVC, animated: true, completion: nil)
+                                    }
                                 }
-
                             }
                         }
                     }
@@ -88,7 +108,7 @@ class registerUserViewController: UIViewController {
     extension registerUserViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
         func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
             if let image = info[.originalImage] as? UIImage {
-                profileImageView.image = image // o asignar a otra propiedad
+                profileImageView.image = image
                 selectedImage = image
             }
             picker.dismiss(animated: true)

@@ -283,14 +283,58 @@
                     <view key="view" contentMode="scaleToFill" id="sp2-q6-fub">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c4I-sD-luX">
+                                <rect key="frame" x="96" y="109" width="201" height="191"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="3Fv-Nc-Cu8"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="200" id="5Rl-9W-TYY"/>
+                                    <constraint firstAttribute="width" constant="200" id="dIA-Q0-Iid"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QO3-dk-5ak">
+                                <rect key="frame" x="107" y="373" width="190" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QWl-an-Pjn">
+                                <rect key="frame" x="62" y="441" width="292" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G4z-Dl-svY">
+                                <rect key="frame" x="134" y="653" width="126" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemRedColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Cerrar sesion">
+                                    <color key="baseForegroundColor" systemColor="systemBackgroundColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="logoutButtonTapped:" destination="Lau-f9-aHZ" eventType="touchUpInside" id="7gR-ao-E8q"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="brn-2f-M74"/>
                         <color key="backgroundColor" systemColor="systemYellowColor"/>
+                        <constraints>
+                            <constraint firstItem="c4I-sD-luX" firstAttribute="top" secondItem="brn-2f-M74" secondAttribute="top" constant="50" id="TCk-iN-GSZ"/>
+                            <constraint firstItem="brn-2f-M74" firstAttribute="trailing" secondItem="c4I-sD-luX" secondAttribute="trailing" constant="96" id="WQV-bB-MUB"/>
+                            <constraint firstItem="c4I-sD-luX" firstAttribute="leading" secondItem="brn-2f-M74" secondAttribute="leading" constant="96" id="yuZ-52-znY"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Perfil" image="usuario_20pt_1x" selectedImage="usuario_20pt_1x 1" id="NYf-V8-KkR"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="QWl-an-Pjn" id="EFy-3t-bti"/>
+                        <outlet property="nameTextField" destination="QO3-dk-5ak" id="i0Q-fy-kz1"/>
+                        <outlet property="profileImageURL" destination="c4I-sD-luX" id="WsS-Yg-KuP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aDw-Ng-gpP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4602" y="311"/>
+            <point key="canvasLocation" x="4600.7633587786258" y="310.56338028169017"/>
         </scene>
         <!--Register User View Controller-->
         <scene sceneID="bIN-KJ-v0d">
@@ -413,6 +457,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemTealColor">
             <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

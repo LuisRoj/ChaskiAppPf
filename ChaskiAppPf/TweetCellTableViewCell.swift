@@ -10,14 +10,10 @@ import AlamofireImage
 
 class TweetCellTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var usernameLabel: UILabel!
-    
+    @IBOutlet weak var usernameLabel: UILabel!    
     @IBOutlet weak var userDisplayNameLabel: UILabel!
-    
     @IBOutlet weak var contentLabel: UILabel!
-    
     @IBOutlet weak var profileImageView: UIImageView!
-    
     @IBOutlet weak var tweetImageView: UIImageView!
     
     
