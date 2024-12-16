@@ -41,44 +41,37 @@ class registerUserViewController: UIViewController {
         
         @IBAction func registerButtonTapped(_ sender: UIButton) {
             guard let email = emailTextField.text,
-                  let password = passwordTextField.text,
-                  let name = nameTextField.text,
-                  let profileImage = profileImageView.image?.jpegData(compressionQuality: 0.8) else { return }
-            
-            // Crear un ID personalizado
-            let randomNumber = Int.random(in: 100_000_000...999_999_999)
-            let documentId = "@\(name)\(randomNumber)"
-            
-            Auth.auth().createUser(withEmail: email, password: password) { result, error in
-                guard error == nil else {
-                    print("Error al registrar: \(error?.localizedDescription ?? "Desconocido")")
-                    return
-                }
-
-                let storageRef = Storage.storage().reference().child("profileImages/\(documentId).jpg")
-                storageRef.putData(profileImage, metadata: nil) { _, error in
-                    guard error == nil else {
-                        print("Error al subir imagen: \(error?.localizedDescription ?? "Desconocido")")
-                        return
-                    }
-
-                    storageRef.downloadURL { url, _ in
-                        guard let imageURL = url else { return }
+                          let password = passwordTextField.text,
+                          let name = nameTextField.text,
+                          let profileImage = profileImageView.image?.jpegData(compressionQuality: 0.8) else { return }
+                    
+                    // Crear el usuario con Firebase Authentication
+                    Auth.auth().createUser(withEmail: email, password: password) { result, error in
+                        guard error == nil else {
+                            print("Error al registrar: \(error?.localizedDescription ?? "Desconocido")")
+                            return
+                        }
                         
-                        let db = Firestore.firestore()
+                        // Obtener el uid de Firebase Authentication
+                        guard let user = result?.user else { return }
+                        let userId = user.uid  // UID único generado por Firebase
                         
-                        // Validar que el ID sea único
-                        let userDocRef = db.collection("users").document(documentId)
-                        userDocRef.getDocument { (document, error) in
-                            if let error = error {
-                                print("Error al obtener datos del usuario: \(error.localizedDescription)")
+                        // Subir la imagen de perfil a Firebase Storage
+                        let storageRef = Storage.storage().reference().child("profileImages/\(userId).jpg")
+                        storageRef.putData(profileImage, metadata: nil) { _, error in
+                            guard error == nil else {
+                                print("Error al subir imagen: \(error?.localizedDescription ?? "Desconocido")")
                                 return
                             }
-                            
-                            if let document = document, document.exists {
-                                print("El ID generado ya existe. Intenta nuevamente.")
-                            } else {
-                                // Guardar datos en Firestore
+
+                            // Obtener la URL de la imagen subida
+                            storageRef.downloadURL { url, _ in
+                                guard let imageURL = url else { return }
+                                
+                                let db = Firestore.firestore()
+                                
+                                // Guardar los datos del usuario en Firestore usando el UID de Firebase como ID
+                                let userDocRef = db.collection("users").document(userId)
                                 userDocRef.setData([
                                     "name": name,
                                     "email": email,
@@ -90,6 +83,8 @@ class registerUserViewController: UIViewController {
                                     }
                                     
                                     print("Usuario registrado correctamente")
+                                    
+                                    // Redirigir al LoginViewController después del registro
                                     let storyboard = UIStoryboard(name: "Main", bundle: nil)
                                     if let loginVC = storyboard.instantiateViewController(withIdentifier: "loginViewController") as? loginViewController {
                                         loginVC.modalPresentationStyle = .fullScreen
@@ -101,8 +96,6 @@ class registerUserViewController: UIViewController {
                     }
                 }
             }
-        }
-    }
 
     // La extensión debe estar fuera de la clase principal
     extension registerUserViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
