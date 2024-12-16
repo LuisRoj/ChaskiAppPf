@@ -278,29 +278,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c4I-sD-luX">
-                                <rect key="frame" x="96" y="109" width="201" height="191"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="c4I-sD-luX">
+                                <rect key="frame" x="85" y="69" width="223" height="191"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="3Fv-Nc-Cu8"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="200" id="5Rl-9W-TYY"/>
-                                    <constraint firstAttribute="width" constant="200" id="dIA-Q0-Iid"/>
+                                    <constraint firstAttribute="height" constant="191" id="gwB-db-puz"/>
                                 </constraints>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QO3-dk-5ak">
-                                <rect key="frame" x="107" y="373" width="190" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QO3-dk-5ak">
+                                <rect key="frame" x="85" y="270" width="223" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QWl-an-Pjn">
-                                <rect key="frame" x="62" y="441" width="292" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QWl-an-Pjn">
+                                <rect key="frame" x="45" y="314" width="303" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G4z-Dl-svY">
-                                <rect key="frame" x="134" y="653" width="126" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G4z-Dl-svY">
+                                <rect key="frame" x="45" y="356" width="125.99999999999997" height="35"/>
                                 <color key="backgroundColor" systemColor="systemRedColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Cerrar sesion">
@@ -314,9 +309,17 @@
                         <viewLayoutGuide key="safeArea" id="brn-2f-M74"/>
                         <color key="backgroundColor" systemColor="systemYellowColor"/>
                         <constraints>
-                            <constraint firstItem="c4I-sD-luX" firstAttribute="top" secondItem="brn-2f-M74" secondAttribute="top" constant="50" id="TCk-iN-GSZ"/>
-                            <constraint firstItem="brn-2f-M74" firstAttribute="trailing" secondItem="c4I-sD-luX" secondAttribute="trailing" constant="96" id="WQV-bB-MUB"/>
-                            <constraint firstItem="c4I-sD-luX" firstAttribute="leading" secondItem="brn-2f-M74" secondAttribute="leading" constant="96" id="yuZ-52-znY"/>
+                            <constraint firstItem="QO3-dk-5ak" firstAttribute="top" secondItem="c4I-sD-luX" secondAttribute="bottom" constant="10" id="0Cc-bu-fT8"/>
+                            <constraint firstItem="brn-2f-M74" firstAttribute="trailing" secondItem="c4I-sD-luX" secondAttribute="trailing" constant="85" id="2pt-36-Ewd"/>
+                            <constraint firstItem="c4I-sD-luX" firstAttribute="top" secondItem="brn-2f-M74" secondAttribute="top" constant="10" id="GoP-eh-E9t"/>
+                            <constraint firstItem="QWl-an-Pjn" firstAttribute="top" secondItem="QO3-dk-5ak" secondAttribute="bottom" constant="10" id="IoT-Pc-nL0"/>
+                            <constraint firstItem="G4z-Dl-svY" firstAttribute="top" secondItem="QWl-an-Pjn" secondAttribute="bottom" constant="8" id="L0e-jg-Juc"/>
+                            <constraint firstItem="c4I-sD-luX" firstAttribute="leading" secondItem="brn-2f-M74" secondAttribute="leading" constant="85" id="Mr3-9V-iEj"/>
+                            <constraint firstItem="brn-2f-M74" firstAttribute="trailing" secondItem="QO3-dk-5ak" secondAttribute="trailing" constant="85" id="YZX-Ga-yth"/>
+                            <constraint firstItem="brn-2f-M74" firstAttribute="trailing" secondItem="QWl-an-Pjn" secondAttribute="trailing" constant="45" id="adC-iI-XeE"/>
+                            <constraint firstItem="QWl-an-Pjn" firstAttribute="centerX" secondItem="G4z-Dl-svY" secondAttribute="centerX" constant="88.500000000000014" id="hmv-qm-V1s"/>
+                            <constraint firstItem="QWl-an-Pjn" firstAttribute="leading" secondItem="brn-2f-M74" secondAttribute="leading" constant="45" id="r99-Cx-haM"/>
+                            <constraint firstItem="QO3-dk-5ak" firstAttribute="leading" secondItem="brn-2f-M74" secondAttribute="leading" constant="85" id="vkF-DU-g0x"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Perfil" image="usuario_20pt_1x" selectedImage="usuario_20pt_1x 1" id="NYf-V8-KkR"/>
