@@ -28,6 +28,7 @@
 		B1C681CA2D0C01940015EBF2 /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C681C92D0C01940015EBF2 /* Tweet.swift */; };
 		B1C681CC2D0C19BB0015EBF2 /* TweetCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C681CB2D0C19BB0015EBF2 /* TweetCellTableViewCell.swift */; };
 		B1C681CF2D0C1B020015EBF2 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = B1C681CE2D0C1B020015EBF2 /* Alamofire */; };
+		B79DFBEE2D0FB663000CE145 /* AlamofireImage in Frameworks */ = {isa = PBXBuildFile; productRef = B79DFBED2D0FB663000CE145 /* AlamofireImage */; };
 		B7C569882D0DE04D008016D5 /* PublishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C569872D0DE04D008016D5 /* PublishViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +58,7 @@
 			files = (
 				B152F9972D0694B10043A93A /* FirebaseDatabase in Frameworks */,
 				B1C681CF2D0C1B020015EBF2 /* Alamofire in Frameworks */,
+				B79DFBEE2D0FB663000CE145 /* AlamofireImage in Frameworks */,
 				B152F99F2D0694B10043A93A /* FirebaseStorageCombine-Community in Frameworks */,
 				B152F9992D0694B10043A93A /* FirebaseFirestore in Frameworks */,
 				B152F9932D0694B10043A93A /* FirebaseAuth in Frameworks */,
@@ -132,6 +134,7 @@
 				B152F99C2D0694B10043A93A /* FirebaseStorage */,
 				B152F99E2D0694B10043A93A /* FirebaseStorageCombine-Community */,
 				B1C681CE2D0C1B020015EBF2 /* Alamofire */,
+				B79DFBED2D0FB663000CE145 /* AlamofireImage */,
 			);
 			productName = ChaskiAppPf;
 			productReference = B152F9782D0692EF0043A93A /* ChaskiAppPf.app */;
@@ -164,6 +167,7 @@
 			packageReferences = (
 				B152F9912D0694B10043A93A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				B1C681CD2D0C1B020015EBF2 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				B79DFBEC2D0FB663000CE145 /* XCRemoteSwiftPackageReference "AlamofireImage" */,
 			);
 			productRefGroup = B152F9792D0692EF0043A93A /* Products */;
 			projectDirPath = "";
@@ -436,6 +440,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		B79DFBEC2D0FB663000CE145 /* XCRemoteSwiftPackageReference "AlamofireImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/AlamofireImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -478,6 +490,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B1C681CD2D0C1B020015EBF2 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		B79DFBED2D0FB663000CE145 /* AlamofireImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B79DFBEC2D0FB663000CE145 /* XCRemoteSwiftPackageReference "AlamofireImage" */;
+			productName = AlamofireImage;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

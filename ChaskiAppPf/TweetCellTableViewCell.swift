@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class TweetCellTableViewCell: UITableViewCell {
     
@@ -21,76 +22,44 @@ class TweetCellTableViewCell: UITableViewCell {
     
     
     override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
+            super.awakeFromNib()
+            profileImageView.layer.cornerRadius = profileImageView.frame.height / 2
+            profileImageView.clipsToBounds = true
+        }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
-    func configureCell(with tweet: Tweet) {
-            print("Configuring cell with tweet: \(tweet)")
-
-            // Configurar texto de las etiquetas
+    override func prepareForReuse() {
+            super.prepareForReuse()
+            profileImageView.image = nil
+            tweetImageView.image = nil
+            tweetImageView.isHidden = false
+        }
+        
+        func configureCell(with tweet: Tweet) {
             userDisplayNameLabel.text = tweet.userDisplayName ?? "Unknown"
             usernameLabel.text = tweet.username ?? "Unknown"
             contentLabel.text = tweet.content
-
-            // Cargar imagen de perfil
-            if let profileImageURL = tweet.profileImageURL {
-                loadImage(from: profileImageURL) { image in
-                    self.profileImageView.image = image
-                }
+            
+            // Imagen de perfil
+            if let profileImageURL = tweet.profileImageURL, let url = URL(string: profileImageURL) {
+                profileImageView.af.setImage(
+                    withURL: url,
+                    placeholderImage: UIImage(named: "placeholder"),
+                    imageTransition: .crossDissolve(0.2)
+                )
             } else {
-                profileImageView.image = nil
-            }
-
-            // Cargar imagen del tuit
-            if let tweetImageURL = tweet.imageURL {
-                print("Cargando imagen del tuit desde: \(tweetImageURL)") // Log de depuración
-                tweetImageView.isHidden = false // Mostrar imageView
-                tweetImageView.backgroundColor = .green // Agregar color de fondo temporal
-                loadImage(from: tweetImageURL) { image in
-                    if let image = image {
-                        self.tweetImageView.image = image
-                        print("Imagen cargada con éxito")
-                    } else {
-                        print("Error al cargar la imagen del tuit")
-                        self.tweetImageView.isHidden = true // Ocultar en caso de error
-                    }
-                }
-            } else {
-                tweetImageView.isHidden = true // Si no hay URL de imagen, ocultamos el ImageView
-            }
-        }
-
-        // Método para cargar imágenes de una URL
-        private func loadImage(from urlString: String, completion: @escaping (UIImage?) -> Void) {
-            guard let url = URL(string: urlString) else {
-                print("URL no válida: \(urlString)")
-                completion(nil)
-                return
+                profileImageView.image = UIImage(named: "placeholder")
             }
             
-            URLSession.shared.dataTask(with: url) { (data, response, error) in
-                if let error = error {
-                    print("Error al cargar la imagen: \(error.localizedDescription)")
-                    completion(nil)
-                    return
-                }
-
-                guard let data = data, let image = UIImage(data: data) else {
-                    print("Error al convertir los datos a imagen")
-                    completion(nil)
-                    return
-                }
-                
-                DispatchQueue.main.async {
-                    completion(image)
-                }
-            }.resume()
+            // Imagen del tuit
+            if let tweetImageURL = tweet.imageURL, let url = URL(string: tweetImageURL) {
+                tweetImageView.af.setImage(
+                    withURL: url,
+                    placeholderImage: UIImage(named: "placeholder"),
+                    imageTransition: .crossDissolve(0.2)
+                )
+            } else {
+                tweetImageView.isHidden = true
+            }
         }
     }
+
