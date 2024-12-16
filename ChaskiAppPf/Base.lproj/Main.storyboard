@@ -148,7 +148,7 @@
                                                         <constraint firstAttribute="height" constant="60" id="egA-iE-d4L"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="userDispleyNameLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GAV-Pc-H32">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="userDispleyNameLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GAV-Pc-H32">
                                                     <rect key="frame" x="90.666666666666671" y="5" width="175.33333333333331" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="Qbn-J9-mC5"/>
@@ -165,6 +165,9 @@
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yd4-8m-2us">
                                                     <rect key="frame" x="3" y="67" width="387" height="228"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="228" id="Uvj-cc-73I"/>
+                                                    </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="usernameLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZA1-8i-cSV">
                                                     <rect key="frame" x="271" y="5" width="117" height="20.333333333333332"/>
@@ -183,9 +186,9 @@
                                                 <constraint firstAttribute="trailing" secondItem="yd4-8m-2us" secondAttribute="trailing" constant="3" id="OJT-wg-8WH"/>
                                                 <constraint firstItem="yd4-8m-2us" firstAttribute="top" secondItem="6Gu-Qr-S4k" secondAttribute="bottom" constant="5" id="RSW-0N-pd4"/>
                                                 <constraint firstItem="6Gu-Qr-S4k" firstAttribute="top" secondItem="BhD-Aw-nJG" secondAttribute="top" constant="2" id="Sh2-fr-nVy"/>
-                                                <constraint firstItem="ZA1-8i-cSV" firstAttribute="leading" secondItem="GAV-Pc-H32" secondAttribute="trailing" constant="5" id="Tli-cf-VZO"/>
                                                 <constraint firstItem="ZA1-8i-cSV" firstAttribute="top" secondItem="BhD-Aw-nJG" secondAttribute="top" constant="5" id="WKV-zP-WAv"/>
                                                 <constraint firstAttribute="trailing" secondItem="ZA1-8i-cSV" secondAttribute="trailing" constant="5" id="XIa-f6-zje"/>
+                                                <constraint firstItem="GAV-Pc-H32" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Gu-Qr-S4k" secondAttribute="trailing" constant="8" symbolic="YES" id="XTO-bt-SSR"/>
                                                 <constraint firstItem="yd4-8m-2us" firstAttribute="top" secondItem="J9R-nK-Y3w" secondAttribute="bottom" constant="5" id="gru-dt-mj0"/>
                                                 <constraint firstItem="GAV-Pc-H32" firstAttribute="top" secondItem="BhD-Aw-nJG" secondAttribute="top" constant="5" id="iUn-e7-fk7"/>
                                                 <constraint firstItem="yd4-8m-2us" firstAttribute="leading" secondItem="BhD-Aw-nJG" secondAttribute="leading" constant="3" id="j5Z-r2-tUk"/>
