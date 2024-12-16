@@ -149,16 +149,13 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="userDispleyNameLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GAV-Pc-H32">
-                                                    <rect key="frame" x="90.666666666666671" y="5" width="175.33333333333331" height="21"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="21" id="Qbn-J9-mC5"/>
-                                                    </constraints>
+                                                    <rect key="frame" x="92.000000000000014" y="5" width="175.33333333333337" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="contentLabel" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J9R-nK-Y3w">
-                                                    <rect key="frame" x="92" y="31" width="296" height="31"/>
+                                                    <rect key="frame" x="92" y="42" width="99.666666666666686" height="20"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -170,31 +167,25 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="usernameLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZA1-8i-cSV">
-                                                    <rect key="frame" x="271" y="5" width="117" height="20.333333333333332"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="20.329999999999998" id="8DO-PA-JOR"/>
-                                                    </constraints>
+                                                    <rect key="frame" x="277.33333333333331" y="5" width="117" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="GAV-Pc-H32" firstAttribute="leading" secondItem="6Gu-Qr-S4k" secondAttribute="trailing" constant="30" id="CHL-Pd-4zh"/>
                                                 <constraint firstItem="J9R-nK-Y3w" firstAttribute="leading" secondItem="6Gu-Qr-S4k" secondAttribute="trailing" constant="30" id="DvT-aR-7hd"/>
-                                                <constraint firstItem="ZA1-8i-cSV" firstAttribute="leading" secondItem="GAV-Pc-H32" secondAttribute="trailing" constant="5" id="E2d-2a-5ff"/>
                                                 <constraint firstItem="6Gu-Qr-S4k" firstAttribute="leading" secondItem="BhD-Aw-nJG" secondAttribute="leading" constant="2" id="My8-fE-oKc"/>
                                                 <constraint firstAttribute="trailing" secondItem="yd4-8m-2us" secondAttribute="trailing" constant="3" id="OJT-wg-8WH"/>
                                                 <constraint firstItem="yd4-8m-2us" firstAttribute="top" secondItem="6Gu-Qr-S4k" secondAttribute="bottom" constant="5" id="RSW-0N-pd4"/>
                                                 <constraint firstItem="6Gu-Qr-S4k" firstAttribute="top" secondItem="BhD-Aw-nJG" secondAttribute="top" constant="2" id="Sh2-fr-nVy"/>
-                                                <constraint firstItem="ZA1-8i-cSV" firstAttribute="top" secondItem="BhD-Aw-nJG" secondAttribute="top" constant="5" id="WKV-zP-WAv"/>
-                                                <constraint firstAttribute="trailing" secondItem="ZA1-8i-cSV" secondAttribute="trailing" constant="5" id="XIa-f6-zje"/>
-                                                <constraint firstItem="GAV-Pc-H32" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Gu-Qr-S4k" secondAttribute="trailing" constant="8" symbolic="YES" id="XTO-bt-SSR"/>
+                                                <constraint firstItem="ZA1-8i-cSV" firstAttribute="top" secondItem="BhD-Aw-nJG" secondAttribute="top" constant="5" id="XlT-tG-UQf"/>
                                                 <constraint firstItem="yd4-8m-2us" firstAttribute="top" secondItem="J9R-nK-Y3w" secondAttribute="bottom" constant="5" id="gru-dt-mj0"/>
-                                                <constraint firstItem="GAV-Pc-H32" firstAttribute="top" secondItem="BhD-Aw-nJG" secondAttribute="top" constant="5" id="iUn-e7-fk7"/>
+                                                <constraint firstItem="GAV-Pc-H32" firstAttribute="top" secondItem="BhD-Aw-nJG" secondAttribute="top" constant="5" id="hsI-20-HWu"/>
                                                 <constraint firstItem="yd4-8m-2us" firstAttribute="leading" secondItem="BhD-Aw-nJG" secondAttribute="leading" constant="3" id="j5Z-r2-tUk"/>
                                                 <constraint firstAttribute="bottom" secondItem="yd4-8m-2us" secondAttribute="bottom" constant="3" id="qNL-zu-CMf"/>
-                                                <constraint firstItem="J9R-nK-Y3w" firstAttribute="top" secondItem="GAV-Pc-H32" secondAttribute="bottom" constant="5" id="qan-NC-3hD"/>
-                                                <constraint firstAttribute="trailing" secondItem="J9R-nK-Y3w" secondAttribute="trailing" constant="5" id="uq6-uR-ibW"/>
+                                                <constraint firstItem="ZA1-8i-cSV" firstAttribute="leading" secondItem="GAV-Pc-H32" secondAttribute="trailing" constant="10" id="x61-5j-T7M"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
