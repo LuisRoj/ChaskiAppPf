@@ -75,7 +75,8 @@ class registerUserViewController: UIViewController {
                                 userDocRef.setData([
                                     "name": name,
                                     "email": email,
-                                    "profileImageURL": imageURL.absoluteString
+                                    "profileImageURL": imageURL.absoluteString,
+                                    "username": userId  // Guardamos el UID como 'username'
                                 ]) { error in
                                     if let error = error {
                                         print("Error al guardar datos: \(error.localizedDescription)")

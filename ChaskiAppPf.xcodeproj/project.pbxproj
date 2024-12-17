@@ -28,6 +28,7 @@
 		B1C681CA2D0C01940015EBF2 /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C681C92D0C01940015EBF2 /* Tweet.swift */; };
 		B1C681CC2D0C19BB0015EBF2 /* TweetCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C681CB2D0C19BB0015EBF2 /* TweetCellTableViewCell.swift */; };
 		B1C681CF2D0C1B020015EBF2 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = B1C681CE2D0C1B020015EBF2 /* Alamofire */; };
+		B745D45B2D10E7650023617D /* userTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B745D45A2D10E7650023617D /* userTableViewCell.swift */; };
 		B79DFBEE2D0FB663000CE145 /* AlamofireImage in Frameworks */ = {isa = PBXBuildFile; productRef = B79DFBED2D0FB663000CE145 /* AlamofireImage */; };
 		B7C569882D0DE04D008016D5 /* PublishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C569872D0DE04D008016D5 /* PublishViewController.swift */; };
 /* End PBXBuildFile section */
@@ -48,6 +49,7 @@
 		B1C681C72D0BFD580015EBF2 /* profileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileViewController.swift; sourceTree = "<group>"; };
 		B1C681C92D0C01940015EBF2 /* Tweet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
 		B1C681CB2D0C19BB0015EBF2 /* TweetCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetCellTableViewCell.swift; sourceTree = "<group>"; };
+		B745D45A2D10E7650023617D /* userTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userTableViewCell.swift; sourceTree = "<group>"; };
 		B7C569872D0DE04D008016D5 /* PublishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -105,6 +107,7 @@
 				B1C681C92D0C01940015EBF2 /* Tweet.swift */,
 				B1C681CB2D0C19BB0015EBF2 /* TweetCellTableViewCell.swift */,
 				B7C569872D0DE04D008016D5 /* PublishViewController.swift */,
+				B745D45A2D10E7650023617D /* userTableViewCell.swift */,
 			);
 			path = ChaskiAppPf;
 			sourceTree = "<group>";
@@ -201,6 +204,7 @@
 				B1C681CC2D0C19BB0015EBF2 /* TweetCellTableViewCell.swift in Sources */,
 				B152F9802D0692EF0043A93A /* ViewController.swift in Sources */,
 				B1C681C22D0BBAAE0015EBF2 /* registerUserViewController.swift in Sources */,
+				B745D45B2D10E7650023617D /* userTableViewCell.swift in Sources */,
 				B1C681C82D0BFD580015EBF2 /* profileViewController.swift in Sources */,
 				B152F97C2D0692EF0043A93A /* AppDelegate.swift in Sources */,
 				B152F97E2D0692EF0043A93A /* SceneDelegate.swift in Sources */,
