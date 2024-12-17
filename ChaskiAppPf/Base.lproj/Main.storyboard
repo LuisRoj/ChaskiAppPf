@@ -96,7 +96,7 @@
                                 </constraints>
                                 <color key="tintColor" systemColor="labelColor"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Iniciar sesiòn"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Iniciar sesión"/>
                                 <connections>
                                     <action selector="loginButtonTapped:" destination="pfF-MW-UHZ" eventType="touchUpInside" id="H5O-q4-JWd"/>
                                 </connections>

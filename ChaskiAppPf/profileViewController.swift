@@ -26,10 +26,24 @@ class profileViewController: UIViewController, UITableViewDelegate, UITableViewD
             // Configuración inicial
             setupUI()
             configureTableView()
+        
+        // Configurar Pull to Refresh
+            let refreshControl = UIRefreshControl()
+            refreshControl.addTarget(self, action: #selector(refreshUserTweets), for: .valueChanged)
+            userTweetTableView.refreshControl = refreshControl
             
             // Cargar datos
             fetchUserDataAndTweets()
         }
+    
+    // MARK: - Pull to Refresh
+    @objc func refreshUserTweets() {
+        fetchUserTweets {
+            DispatchQueue.main.async {
+                self.userTweetTableView.refreshControl?.endRefreshing()
+            }
+        }
+    }
         
         private func setupUI() {
             // Redondear la imagen de perfil
@@ -47,10 +61,7 @@ class profileViewController: UIViewController, UITableViewDelegate, UITableViewD
             userTweetTableView.estimatedRowHeight = 150
             userTweetTableView.rowHeight = UITableView.automaticDimension
             
-            // Gesture para eliminar tuits deslizando
-            let swipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipeGesture))
-            swipeGesture.direction = .left
-            userTweetTableView.addGestureRecognizer(swipeGesture)
+            
         }
         
         // MARK: - Carga de Datos
@@ -188,35 +199,31 @@ class profileViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
         
         // MARK: - Gestos
-        @objc func handleSwipeGesture(gesture: UISwipeGestureRecognizer) {
-            let point = gesture.location(in: userTweetTableView)
-            if let indexPath = userTweetTableView.indexPathForRow(at: point) {
-                let tweetToDelete = userTweets[indexPath.row]
-                confirmDelete(tweetToDelete, at: indexPath)
-            }
-        }
-        
-        private func confirmDelete(_ tweet: Tweet, at indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let tweetToDelete = userTweets[indexPath.row] // Obtener el tuit a eliminar
+            
             let alert = UIAlertController(title: "Eliminar Tuit", message: "¿Estás seguro de que deseas eliminar este tuit?", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
             alert.addAction(UIAlertAction(title: "Eliminar", style: .destructive, handler: { _ in
-                self.deleteTweet(tweet, at: indexPath)
+                let db = Firestore.firestore()
+                
+                // Eliminar el tuit de Firestore
+                db.collection("tweets").document(tweetToDelete.id).delete { error in
+                    if let error = error {
+                        print("Error al eliminar el tuit: \(error.localizedDescription)")
+                    } else {
+                        // Actualizar la tabla después de eliminar
+                        self.userTweets.remove(at: indexPath.row)
+                        tableView.deleteRows(at: [indexPath], with: .automatic)
+                    }
+                }
             }))
+            
             self.present(alert, animated: true, completion: nil)
         }
-        
-        private func deleteTweet(_ tweet: Tweet, at indexPath: IndexPath) {
-            let db = Firestore.firestore()
-            db.collection("tweets").document(tweet.id).delete { error in
-                if let error = error {
-                    print("Error al eliminar el tuit: \(error.localizedDescription)")
-                    return
-                }
-                
-                self.userTweets.remove(at: indexPath.row)
-                self.userTweetTableView.deleteRows(at: [indexPath], with: .automatic)
-            }
-        }
+    }
+
         
         // MARK: - UITableViewDataSource
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
